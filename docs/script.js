@@ -52,6 +52,18 @@ function clearCalendar(){
     }
 }
 
+function clearStyle(){
+    for(let i=0; i<6; i++){
+        for(let j=0; j<7; j++){
+            if(document.getElementById(i.toString() + j.toString()).innerHTML==""){
+                document.getElementById(i.toString() + j.toString()).parentNode.className="";
+            }else{
+                document.getElementById(i.toString() + j.toString()).parentNode.className = "rounded-full items-center justify-center hover:bg-gray-300 hover:shadow-outline days cursor-pointer py-1"
+            }
+        }
+    }
+}
+
 function displayCalendar(d){
 
     console.log("Full date: " + d.getDate() + " / " + d.getMonth() + " / " + d.getFullYear());
@@ -85,6 +97,8 @@ function displayCalendar(d){
             }
         }
     }
+
+    clearStyle();
 }
 
 function nextMonth(){
@@ -99,6 +113,6 @@ function previousMonth(){
     displayCalendar(new Date(current.getFullYear(), current.getMonth()));
 }
 
-displayCalendar(new Date(current.getFullYear(), current.getMonth(), 1));
+displayCalendar(new Date(current.getFullYear(), current.getMonth(), current.getDate()));
 
 
