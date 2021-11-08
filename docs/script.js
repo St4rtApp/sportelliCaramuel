@@ -58,7 +58,8 @@ function clearStyle(){
             if(document.getElementById(i.toString() + j.toString()).innerHTML==""){
                 document.getElementById(i.toString() + j.toString()).parentNode.className="";
             }else{
-                document.getElementById(i.toString() + j.toString()).parentNode.className = "rounded-full items-center justify-center hover:bg-gray-300 hover:shadow-outline days cursor-pointer py-1"
+                document.getElementById(i.toString() + j.toString()).parentNode.className = "rounded-full items-center justify-center hover:bg-gray-300 hover:shadow-outline days cursor-pointer py-1";
+                document.getElementById(i.toString() + j.toString()).classList.add("unselectable");
             }
         }
     }
