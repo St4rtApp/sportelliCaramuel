@@ -22,7 +22,7 @@ if(isset($_POST["register"])){
     //controllo se la email esiste già
 
     $email_check="SELECT * FROM users WHERE email='$email' ";
-    if($connessione->query($email_check)==true){
+    if($connessione->query($email_check)){
         if($connessione->num_rows()>0){
             $errors['email']= "La mail inserita esiste già";
         }
