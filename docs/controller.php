@@ -128,7 +128,7 @@ if(isset($_POST['login'])){
     //controllo se la mail esiste nel db
 
     $check_email = "SELECT * FROM users WHERE email = '$email' ";
-    if($result = $connessione->query($check_email);){
+    if($result = $connessione->query($check_email)){
         if($result->num_rows() > 0 ){
 
             //controllo la password
