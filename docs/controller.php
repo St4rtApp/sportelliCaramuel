@@ -75,14 +75,39 @@ if(isset($_POST['check'])){
     $_SESSION['info']="";
     $otp_code= $connessione->real_escape_string($_POST['otp']);
     $check_code= "SELECT * FROM users WHERE code= '$otp_code'";
-    if($connessione->query($check_code)){
-        if($connessione->num_rows()>0){
-            
+
+    //verifico il codice
+
+    if($result = $connessione->query($check_code)){
+        if($result->num_rows()>0){
+
+            //verifico l'utente
+
+            $fetch_data = $result->fetch_assoc();
+            $fetch_code = $fetch_data['code'];
+            $email= $fetch_data['email'];
+            $code = 0;
+            $status = "verified";
+            $update_otp = "UPDATE users SET code = '$code', status = '$status' WHERE code = '$fetch_code'";
+            $update_res = $connessione->query($update_otp);
+            if($update_res){
+                $_SESSION['name'] = $name;
+                $_SESSION['email'] = $email;
+                header('location: index.php');
+                exit(); 
+            }else{
+                $errors['otp-error'] = "errore di autenticazione";
+            }
+        }else{
+            $errors['otp-error']="codice errato";
         }
     }else{
         $errors['db-error']="errore del database";
     }
 }
+
+
+
 
 
 ?>
