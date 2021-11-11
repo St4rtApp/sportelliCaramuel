@@ -147,8 +147,8 @@ if(isset($_POST['login'])){
                     header('location: index.php');
                 }else{
                     $info = "Sembra che tu non abbia ancora verificato la mail - $email";
-                    $_SESSION['info'] = $info
-                    header('location:otp.php')
+                    $_SESSION['info'] = $info;
+                    header('location:otp.php');
                 }
             }else{
             $errors['email'] = "Email o password errate";
