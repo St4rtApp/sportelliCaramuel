@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 09, 2021 alle 16:26
+-- Creato il: Nov 11, 2021 alle 16:47
 -- Versione del server: 10.4.19-MariaDB
 -- Versione PHP: 8.0.6
 
@@ -32,6 +32,8 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `surname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `anno` int(1) NOT NULL,
+  `corso` varchar(5) NOT NULL,
   `password` varchar(100) NOT NULL,
   `code` int(11) NOT NULL,
   `status` varchar(30) NOT NULL
@@ -55,7 +57,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

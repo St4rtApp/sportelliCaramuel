@@ -7,13 +7,13 @@ $errors= array();
 //Se l'utente clicca registrati
 
 if(isset($_POST["register"])){
-    $name = $connessione->mysqli_real_escape_string($_POST["nome"]);
-    $surname = $connessione->mysqli_real_escape_string($_POST["cognome"]);
-    $mail = $connessione->mysqli_real_escape_string($_POST["email"]);
-    $pswd = $connessione->mysqli_real_escape_string($_POST["password"]);
-    $cpswd = $connessione->mysqli_real_escape_string($_POST["cpassword"]);
-    $anno = $connessione->mysqli_real_escape_string($_POST["anno"]);
-    $corso = $connessione->mysqli_real_escape_string($_POST["corso"]);
+    $name = $connessione->real_escape_string($_POST["nome"]);
+    $surname = $connessione->real_escape_string($_POST["cognome"]);
+    $email = $connessione->real_escape_string($_POST["email"]);
+    $pswd = $connessione->real_escape_string($_POST["password"]);
+    $cpswd = $connessione->real_escape_string($_POST["cpassword"]);
+    $anno = $connessione->real_escape_string($_POST["anno"]);
+    $corso = $connessione->real_escape_string($_POST["corso"]);
 
     //verifico la password
 
@@ -24,8 +24,8 @@ if(isset($_POST["register"])){
     //controllo se la email esiste già
 
     $email_check="SELECT * FROM users WHERE email='$email' ";
-    if($connessione->query($email_check)){
-        if($connessione->num_rows()>0){
+    if($result = $connessione->query($email_check)){
+        if($result->num_rows > 0){
             $errors['email']= "La mail inserita esiste già";
         }
     }else{
@@ -38,8 +38,8 @@ if(isset($_POST["register"])){
         $encpass= password_hash($pswd, PASSWORD_BCRYPT);
         $code = rand(999999, 111111);
         $status='notverified';
-        $query="INSERT INTO users (name, email, anno, corso, password, code, status)
-                values('$name','$email','$anno', '$corso', '$encpass', '$code', '$status')";
+        $query="INSERT INTO users (name, surname, email, anno, corso, password, code, status)
+                values('$name', '$surname', '$email','$anno', '$corso', '$encpass', '$code', '$status')";
 
         //invio della mail
 
@@ -47,7 +47,7 @@ if(isset($_POST["register"])){
            $subject = "Email Verification Code";
            $message = "codice di verifica: $code";
            $sender = "From: mail@caramuelroncalli.it";
-           if(mail($mail,$subject,$message,$sender)){
+           if(mail($email,$subject,$message,$sender)){
                $info="Ti abbiamo mandato via email il codice di verifica";
                $_SESSION['info'] = $info;
                $_SESSION['email'] = $email;
@@ -73,7 +73,7 @@ if(isset($_POST["register"])){
 
 if(isset($_POST['check'])){
     $_SESSION['info']="";
-    $otp_code= $connessione->mysqli_real_escape_string($_POST['otp']);
+    $otp_code= $connessione->real_escape_string($_POST['otp']);
     $check_code= "SELECT * FROM users WHERE code= '$otp_code'";
     if($connessione->query($check_code)){
         if($connessione->num_rows()>0){

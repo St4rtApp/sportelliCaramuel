@@ -1,4 +1,4 @@
-<?php require_once "controllerUserData.php"; ?>
+<?php require_once "controller.php"; ?>
 <!DOCTYPE html>
 <html>
     <head>
