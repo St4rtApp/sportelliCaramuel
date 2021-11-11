@@ -11,6 +11,22 @@
 
     <body>
         <h1 class="text-center">Register</h1>
+
+        <div class=" flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <div class="flex items-center justify-center w-12 bg-red-500">
+                <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z"/>
+                </svg>
+            </div>
+
+            <div class="px-4 py-2 -mx-3">
+                <div class="mx-3">
+                <span class="font-semibold text-red-500 dark:text-red-400">Error</span>
+                <p class="text-sm text-gray-600 dark:text-gray-200">Your email is already used!</p>
+                </div>
+            </div>
+        </div>
+        
         <div class="grid grid-cols-1 pt-5 mx-auto">
             <div>
             <?php
@@ -35,7 +51,7 @@
                             <i class="fas fa-at"></i>
                         </span>
                         
-                        <input name="email" type="text" placeholder="Esempio@caramuelroncalli.it" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
+                        <input required name="email" type="text" placeholder="Esempio@caramuelroncalli.it" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
                     </div>
                     
 
@@ -45,7 +61,7 @@
                             <i class="material-icons">badge</i>
                         </span>
                         
-                        <input name="nome" type="text" placeholder="Nome" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
+                        <input required name="nome" type="text" placeholder="Nome" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
                     </div>
 
 
@@ -54,7 +70,7 @@
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
                             <i class="material-icons">badge</i>
                         </span>
-                        <input name="cognome" type="text" placeholder="Cognome" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
+                        <input required name="cognome" type="text" placeholder="Cognome" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
                     </div>
 
 
@@ -65,7 +81,12 @@
                                 <i class="material-icons">school</i>
                             </span>
 
-                            <input name="anno" type="number" placeholder="Classe" class="px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
+                            <select required name="anno" class="px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10">
+                                <option value="" selected disabled hidden>-Anno-</option>
+                                <option value="biennio">Biennio (1°-2°)</option>
+                                <option value="triennio">Triennio (3°-5°)</option>
+                            </select>
+                            
                         </div>
 
                         <div class="sm:w-1/2 w-28">
@@ -73,21 +94,25 @@
                                 <i class="material-icons">text_fields</i>
                             </span>
                             
-                            <input name="corso" type="text" placeholder="Sezione" class="px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
+                            <select required name="corso" class="px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10">
+                                <option value="" selected disabled hidden>-Indirizzo-</option>
+                                <option value="liceo">Liceo</option>
+                                <option value="itis">I.T.I.S.</option>
+                            </select>
                         </div>
                     </div>
                     
 
 
-                    <div class="relative flex w-full flex-wrap items-stretch">
+                    <div class="relative flex w-full flex-wrap items-stretch mb-3">
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
                             <i class="fas fa-lock"></i>
                         </span>
                         
-                        <input name="password" id="pswd" type="password" placeholder="Password" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
+                        <input required name="password" id="pswd" type="password" placeholder="Password" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
                         
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
-                            <i id="eye" class="fas fa-eye" onclick="showPassword()"></i>
+                            <i id="eye" class="fas fa-eye" onclick="showPassword('pswd', 'eye')"></i>
                         </span>
                     </div>
 
@@ -96,10 +121,10 @@
                             <i class="fas fa-lock"></i>
                         </span>
                         
-                        <input name="cpassword" id="cpswd" type="cpassword" placeholder="Reinserisci password" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
+                        <input required name="cpassword" id="cpswd" type="password" placeholder="Conferma password" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
                         
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
-                            <i id="eye" class="fas fa-eye" onclick="showPassword()"></i>
+                            <i id="ceye" class="fas fa-eye" onclick="showPassword('cpswd', 'ceye')"></i>
                         </span>
                     </div>
 
