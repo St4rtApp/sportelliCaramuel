@@ -1,6 +1,6 @@
-function showPassword() {
-    var x = document.getElementById("pswd");
-    var i = document.getElementById("eye");
+function showPassword(pid, eid) {
+    var x = document.getElementById(pid);
+    var i = document.getElementById(eid);
     if (x.type === "password") {
         x.type = "text";
         i.classList.remove("fa-eye");
@@ -10,4 +10,4 @@ function showPassword() {
         i.classList.remove("fa-eye-slash");
         i.classList.add("fa-eye");
     }
-  }
+}
