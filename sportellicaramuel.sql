@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 11, 2021 alle 16:47
+-- Creato il: Nov 13, 2021 alle 11:03
 -- Versione del server: 10.4.19-MariaDB
 -- Versione PHP: 8.0.6
 
@@ -32,12 +32,19 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `surname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `anno` int(1) NOT NULL,
+  `anno` varchar(10) NOT NULL,
   `corso` varchar(5) NOT NULL,
   `password` varchar(100) NOT NULL,
   `code` int(11) NOT NULL,
   `status` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `surname`, `email`, `anno`, `corso`, `password`, `code`, `status`) VALUES
+(1, 'Mattia', 'Perfumo', 'perfumo.m10@gmail.com', 'trien', 'itis', '$2y$10$25jWEjoC2Pevr5/Lli3.s.AZbFf/QvTvctqBmHfp9x04.UPUK.tdS', 0, 'verified');
 
 --
 -- Indici per le tabelle scaricate
@@ -57,7 +64,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

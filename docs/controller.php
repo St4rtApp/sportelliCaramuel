@@ -74,7 +74,7 @@ if(isset($_POST["register"])){
 
 //se l'utente clicca il bottone per la verifica della mail
 
-if(isset($_POST['check'])){
+if(isset($_POST['otp_send'])){
     $_SESSION['info']="";
     $otp_code= $connessione->real_escape_string($_POST['otp']);
     $check_code= "SELECT * FROM users WHERE code= '$otp_code'";
@@ -82,7 +82,7 @@ if(isset($_POST['check'])){
     //verifico il codice
 
     if($result = $connessione->query($check_code)){
-        if($result->num_rows()>0){
+        if($result->num_rows > 0){
 
             //verifico l'utente
 
@@ -129,7 +129,7 @@ if(isset($_POST['login'])){
 
     $check_email = "SELECT * FROM users WHERE email = '$email' ";
     if($result = $connessione->query($check_email)){
-        if($result->num_rows() > 0 ){
+        if($result->num_rows > 0 ){
 
             //controllo la password
 
@@ -154,7 +154,7 @@ if(isset($_POST['login'])){
             $errors['email'] = "Email o password errate";
         }
         }else{
-            $errors['email'] = "Sembra che tu non sia registrato";
+            $errors['email'] = "Sembra che tu non sia registrato, <a href='register.php' class='text-blue-500'>registrati qui</a>";
         }
     }else{
         $errors['db-error']="errore del database";
