@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="style/style.css">
         <title>Dashboard</title>
     </head>
@@ -16,18 +17,20 @@
             </div>
 
             <div class="flex items-center px-6 h-12 hover:bg-gray-900">
-              <i class="fas fa-user text-white"></i>
+              <i class="material-icons text-white">space_dashboard</i>
               <a href="#" class="pl-5 text-white text-md uppercase">Dashboard</a>
             </div>
-            <div class="flex items-center my-2 h-12 border-b-4 border-black rounded-xl hover:bg-gray-300">
-              <a href="#" class="mx-auto text-white text-lg font-semibold uppercase">Prenota</a>
+            <div class="flex items-center py-2 px-6 h-12 hover:bg-gray-900">
+              <i class="fas fa-calendar text-white"></i>
+              <a href="#" class="pl-5 text-white text-md uppercase">Prenota</a>
             </div>
-            <div class="flex items-center h-12 border-b-4 border-black rounded-xl hover:bg-gray-300">
-              <a href="#" class="mx-auto text-white text-lg font-semibold uppercase">Le tue prenotazioni</a>
+            <div class="flex items-center px-6 h-12 hover:bg-gray-900">
+              <i class="fas fa-bookmark text-white"></i>
+              <a href="#" class="pl-5 text-white text-md uppercase">Le tue prenotazioni</a>
             </div>
-            <div class="flex items-center my-2 h-12 border-b-4 border-black rounded-xl hover:bg-gray-300">
+            <div class="flex items-center py-2 px-6 h-12 hover:bg-gray-900">
               <i class="fas fa-user text-white"></i>
-              <a href="#" class="mx-auto text-white text-lg font-semibold uppercase">Account</a>
+              <a href="#" class="pl-5 text-white text-md uppercase">Account</a>
             </div>
           </div>
 
