@@ -32,14 +32,22 @@ if(isset($_POST["register"])){
         $errors['db-error']="errore del database";
     }
 
-    //genero verification code per la mail
+    //formatto anno e corso
 
+    if($anno == 'biennio'){
+        $corso == 'itis'? $type=1:$type=2;
+    }else{
+        $corso == 'itis'? $type=3:$type=4;
+    }
+
+    //genero verification code per la mail
+    
     if(count($errors) === 0){
         $encpass= password_hash($pswd, PASSWORD_BCRYPT);
         $code = rand(999999, 111111);
         $status='notverified';
-        $query="INSERT INTO users (name, surname, email, anno, corso, password, code, status)
-                values('$name', '$surname', '$email','$anno', '$corso', '$encpass', '$code', '$status')";
+        $query="INSERT INTO users (name, surname, email, type, password, code, status)
+                values('$name', '$surname', '$email', '$type', '$encpass', '$code', '$status')";
 
         //invio della mail
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 13, 2021 alle 11:03
+-- Creato il: Nov 14, 2021 alle 15:10
 -- Versione del server: 10.4.19-MariaDB
 -- Versione PHP: 8.0.6
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `student`
+--
+
+CREATE TABLE `student` (
+  `type_id` int(11) NOT NULL,
+  `anno` varchar(10) NOT NULL,
+  `corso` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `student`
+--
+
+INSERT INTO `student` (`type_id`, `anno`, `corso`) VALUES
+(1, 'biennio', 'Itis'),
+(2, 'biennio', 'Liceo'),
+(3, 'triennio', 'Itis'),
+(4, 'triennio', 'Liceo');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `users`
 --
 
@@ -32,29 +54,28 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `surname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `anno` varchar(10) NOT NULL,
-  `corso` varchar(5) NOT NULL,
+  `type` int(11) NOT NULL,
   `password` varchar(100) NOT NULL,
   `code` int(11) NOT NULL,
   `status` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `users`
---
-
-INSERT INTO `users` (`id`, `name`, `surname`, `email`, `anno`, `corso`, `password`, `code`, `status`) VALUES
-(1, 'Mattia', 'Perfumo', 'perfumo.m10@gmail.com', 'trien', 'itis', '$2y$10$25jWEjoC2Pevr5/Lli3.s.AZbFf/QvTvctqBmHfp9x04.UPUK.tdS', 0, 'verified');
-
---
 -- Indici per le tabelle scaricate
 --
+
+--
+-- Indici per le tabelle `student`
+--
+ALTER TABLE `student`
+  ADD UNIQUE KEY `type_id` (`type_id`);
 
 --
 -- Indici per le tabelle `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `type` (`type`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
@@ -64,7 +85,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Limiti per le tabelle scaricate
+--
+
+--
+-- Limiti per la tabella `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`type`) REFERENCES `student` (`type_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
