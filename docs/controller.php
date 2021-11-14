@@ -20,16 +20,32 @@ if(isset($_POST["register"])){
     if($pswd !== $cpswd){
         $errors['password']= "Le password non corrispondono";
     }
+    if(strlen($pswd) < 9){
+        $errors['password']= "La password deve essere di almeno 9 caratteri";
+    }
+
+    $is_caramuel=explode('@',$email);
+    if($is_caramuel[1] != 'caramuelroncalli.it'){
+        $errors['email']= "Inserire la mail scolastica";
+    }
 
     //controllo se la email esiste già
 
-    $email_check="SELECT * FROM users WHERE email='$email' ";
-    if($result = $connessione->query($email_check)){
-        if($result->num_rows > 0){
-            $errors['email']= "La mail inserita esiste già";
-        }
-    }else{
-        $errors['db-error']="errore del database";
+    if(count($errors) === 0){
+        $email_check="SELECT * FROM users WHERE email='$email' ";
+        if($result = $connessione->query($email_check)){
+            if($result->num_rows > 0){
+                $fetch_check = $result->fetch_assoc();
+                $otpcheck=$fetch_check['status'];
+                if($otpcheck == 'notverified'){
+                    $errors['email']= "La mail inserita esiste già, <a href='otp.php' class='text-blue-500'>verificala qui</a>";
+                }else{
+                    $errors['email']= "La mail inserita esiste già";
+                }
+            }
+        }else{
+            $errors['db-error']="errore del database";
+        }   
     }
 
     //formatto anno e corso
