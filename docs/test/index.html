@@ -1,43 +1,15 @@
-    <!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="test/style.css">
+        <link rel="stylesheet" href="style.css">
         <title>Dashboard</title>
     </head>
     <body class="overflow-x-hidden">
 
-        <div class="flex">
-          <div class="md:w-72 h-screen bg-black">
-            <div class="flex ml-7 my-5 pb-6 border-b border-gray-300">
-              <a href="#" class="mx-auto uppercase font-light text-white text-2xl">Sportelli</a>
-            </div>
-
-            <div id="dashboard" class="flex items-center px-6 h-12 hover:bg-gray-900">
-              <i class="fas fa-chalkboard text-white"></i>
-              <a href="#" class="pl-5 text-white text-md font-light">Dashboard</a>
-            </div>
-            <div id="prenota" class="flex items-center py-2 px-6 h-12 hover:bg-gray-900">
-              <i class="fas fa-calendar text-white"></i>
-              <a href="#" class="pl-5 text-white text-md font-light">Prenota</a>
-            </div>
-            <div id="prenotazioni" class="flex items-center px-6 h-12 hover:bg-gray-900">
-              <i class="fas fa-bookmark text-white"></i>
-              <a href="#" class="pl-5 text-white text-md font-light">Le tue prenotazioni</a>
-            </div>
-            <div id="account" class="flex items-center py-2 px-6 h-12 hover:bg-gray-900">
-              <i class="fas fa-user text-white"></i>
-              <a href="#" class="pl-5 text-white text-md font-light">Account</a>
-            </div>
-          </div>
-
-          <div class="w-max">
-            <div class="my-5 pb-6 border-b border-black">
-              <p class="text-center text-2xl">Prenota</p>
-            </div>
+          <div class="w-max mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 pt-3">
                 <div>
                     <div class="sm:float-right sm:pr-4">
@@ -159,15 +131,12 @@
                 </div>
             </div>
           </div>
-        </div>
 
 
 
-        <script src="test/script.js"></script>
+        <script src="script.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-          $("#dashboard").click(function(){
-            document.getElementById("dashboard").innerHTML="ccaaaccaca";
-          });
+
 
 
 
