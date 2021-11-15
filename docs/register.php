@@ -49,7 +49,7 @@
         <div class="grid grid-cols-1 pt-5 mx-auto">
             <div>
             
-                <form method="POST" class="sm:w-2/3 md:w-1/3 lg:w-1/4 mx-auto w-3/4">
+                <form action="register.php" method="POST" class="sm:w-2/3 md:w-1/3 lg:w-1/4 mx-auto w-3/4">
 
                     <div class="relative flex w-full flex-wrap items-stretch mb-3">
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
