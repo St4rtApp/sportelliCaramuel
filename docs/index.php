@@ -1,4 +1,35 @@
-    <!DOCTYPE html>
+<?php require_once "controller.php"; ?>
+<?php 
+$email = $_SESSION['email'];
+$password = $_SESSION['password'];
+if($email != false && $password != false){
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $run_sql = $connessione->query($sql);
+    echo "inizia";
+    if($run_sql){
+        echo "sql";
+        $fetch_info = $run_sql->fetch_assoc();
+        $status = $fetch_info['status'];
+        $code = $fetch_info['code'];
+        if($status == "verified"){
+            echo "verificato". $email.$password;
+            if($code != 0){
+                header('Location: otp.php');
+            }
+        }else{
+            header('Location: otp.php');
+        }
+    }else{
+        echo "sql fail";
+        die();
+    }
+}else{
+    header('Location: login.php');
+}
+?>
+
+
+<!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

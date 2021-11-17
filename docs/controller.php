@@ -106,6 +106,14 @@ if(isset($_POST['otp_send'])){
     //verifico il codice
 
     if($result = $connessione->query($check_code)){
+
+        $check_email= $result->fetch_assoc();
+        $dbmail=$check_email['email'];
+        if($dbmail != $_SESSION['email']){
+            $errors['otp-error'] = "errore di autenticazioneeee";
+            header('location: otp.php');
+        }
+
         if($result->num_rows > 0){
 
             //verifico l'utente
