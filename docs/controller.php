@@ -121,30 +121,24 @@ if(isset($_POST['otp_send'])){
     
             if($result->num_rows > 0){
 
-                $check_email = $result->fetch_assoc();
-                $dbmail= $check_email['email'];
-                if($dbmail != $_SESSION['email']){
-                    $errors['otp-error'] = "errore di autenticazioneeee";
-                    header('location: otp.php');
-                }
-
                 //verifico l'utente
-    
+
                 $fetch_data = $result->fetch_assoc();
                 $fetch_code = $fetch_data['code'];
                 $email= $fetch_data['email'];
+                $pswd = $fetch_data['password'];
                 $code = 0;
                 $status = "verified";
                 $update_otp = "UPDATE users SET code = '$code', status = '$status' WHERE code = '$fetch_code'";
-                $update_res = $connessione->query($update_otp);
-                if($update_res){
-                    $_SESSION['name'] = $name;
+                
+                if($update_res = $connessione->query($update_otp)){
                     $_SESSION['email'] = $email;
+                    $_SESSION['password'] = $pswd;
                     header('location: index.php');
                     exit(); 
                 }else{
                     $errors['otp-error'] = "errore di autenticazione";
-                }
+                }       
             }else{
                 $errors['otp-error']="codice errato";
             }
@@ -188,7 +182,7 @@ if(isset($_POST['login'])){
                 $status = $fetch['status'];
                 if($status == "verified"){
                     $_SESSION['email'] = $email;
-                    $_SESSION['password'] = $password;
+                    $_SESSION['password'] = $pswd;
                     header('location: index.php');
                 }else{
                     $info = "Sembra che tu non abbia ancora verificato la mail - $email";

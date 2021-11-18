@@ -5,14 +5,11 @@ $password = $_SESSION['password'];
 if($email != false && $password != false){
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $run_sql = $connessione->query($sql);
-    echo "inizia";
     if($run_sql){
-        echo "sql";
         $fetch_info = $run_sql->fetch_assoc();
         $status = $fetch_info['status'];
         $code = $fetch_info['code'];
         if($status == "verified"){
-            echo "verificato". $email.$password;
             if($code != 0){
                 header('Location: otp.php');
             }
