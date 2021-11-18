@@ -99,45 +99,58 @@ if(isset($_POST["register"])){
 //se l'utente clicca il bottone per la verifica della mail
 
 if(isset($_POST['otp_send'])){
+
     $_SESSION['info']="";
-    $otp_code= $connessione->real_escape_string($_POST['otp']);
-    $check_code= "SELECT * FROM users WHERE code= '$otp_code'";
+    $isint=$_POST['otp'];
+
+    //verifico che l'input sia un int
+
+    if(is_numeric($isint)){
+        $otp_code= $connessione->real_escape_string($_POST['otp']);
+    }else{
+        $errors['otp-error']="codice errato";
+    }
 
     //verifico il codice
 
-    if($result = $connessione->query($check_code)){
+    if(count($errors) === 0){
 
-        $check_email= $result->fetch_assoc();
-        $dbmail=$check_email['email'];
-        if($dbmail != $_SESSION['email']){
-            $errors['otp-error'] = "errore di autenticazioneeee";
-            header('location: otp.php');
-        }
+        $check_code= "SELECT * FROM users WHERE code= '$otp_code'";
 
-        if($result->num_rows > 0){
+        if($result = $connessione->query($check_code)){
+    
+            if($result->num_rows > 0){
 
-            //verifico l'utente
+                $check_email = $result->fetch_assoc();
+                $dbmail= $check_email['email'];
+                if($dbmail != $_SESSION['email']){
+                    $errors['otp-error'] = "errore di autenticazioneeee";
+                    header('location: otp.php');
+                }
 
-            $fetch_data = $result->fetch_assoc();
-            $fetch_code = $fetch_data['code'];
-            $email= $fetch_data['email'];
-            $code = 0;
-            $status = "verified";
-            $update_otp = "UPDATE users SET code = '$code', status = '$status' WHERE code = '$fetch_code'";
-            $update_res = $connessione->query($update_otp);
-            if($update_res){
-                $_SESSION['name'] = $name;
-                $_SESSION['email'] = $email;
-                header('location: index.php');
-                exit(); 
+                //verifico l'utente
+    
+                $fetch_data = $result->fetch_assoc();
+                $fetch_code = $fetch_data['code'];
+                $email= $fetch_data['email'];
+                $code = 0;
+                $status = "verified";
+                $update_otp = "UPDATE users SET code = '$code', status = '$status' WHERE code = '$fetch_code'";
+                $update_res = $connessione->query($update_otp);
+                if($update_res){
+                    $_SESSION['name'] = $name;
+                    $_SESSION['email'] = $email;
+                    header('location: index.php');
+                    exit(); 
+                }else{
+                    $errors['otp-error'] = "errore di autenticazione";
+                }
             }else{
-                $errors['otp-error'] = "errore di autenticazione";
+                $errors['otp-error']="codice errato";
             }
         }else{
-            $errors['otp-error']="codice errato";
+            $errors['db-error']="errore del database";
         }
-    }else{
-        $errors['db-error']="errore del database";
     }
 }
 
