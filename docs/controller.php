@@ -56,11 +56,11 @@ if(isset($_POST["register"])){
                exit();
            }else{
                $errors['otp-error'] = "errore nell'invio del codice di verifica";
-           } 
+           }
         }else{
             $errors['db-error']="errore del database";
         }
-        
+
 
     }
 
@@ -97,7 +97,7 @@ if(isset($_POST['otp_send'])){
                 $_SESSION['name'] = $name;
                 $_SESSION['email'] = $email;
                 header('location: index.php');
-                exit(); 
+                exit();
             }else{
                 $errors['otp-error'] = "errore di autenticazione";
             }
@@ -119,7 +119,7 @@ if(isset($_POST['otp_send'])){
 //se l'utente clicca il bottone di login
 
 if(isset($_POST['login'])){
-    
+
     //ricevo mail e password
 
     $email= $connessione->real_escape_string($_POST['email']);
@@ -152,12 +152,15 @@ if(isset($_POST['login'])){
                 }
             }else{
             $errors['email'] = "Email o password errate";
+            echo json_encode($errors);
         }
         }else{
             $errors['email'] = "Sembra che tu non sia registrato, <a href='register.php' class='text-blue-500'>registrati qui</a>";
+            echo json_encode($errors);
         }
     }else{
-        $errors['db-error']="errore del database";
+        $errors['dberror']="errore del database";
+        echo json_encode($errors);
     }
 
 }
