@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="style/style.css">
     </head>
 
-    <body>
+    <body class="overflow-hidden">
         <h1 class="text-center">Register</h1>
 
         <!-- show error -->
@@ -31,41 +31,41 @@
                     foreach($errors as $showerror){
                         echo $showerror."    ";
                     }
-                }      
+                }
                 print('
                     </p>
                     </div>
                 </div>
             </div>
-                ');         
+                ');
         }
         ?>
-            
 
-            
-        
+
+
+
 
 
         <div class="grid grid-cols-1 pt-5 mx-auto">
             <div>
-            
+
                 <form method="POST" class="sm:w-2/3 md:w-1/3 lg:w-1/4 mx-auto w-3/4">
 
                     <div class="relative flex w-full flex-wrap items-stretch mb-3">
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
                             <i class="fas fa-at"></i>
                         </span>
-                        
+
                         <input required name="email" type="text" placeholder="Esempio@caramuelroncalli.it" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
                     </div>
-                    
+
 
 
                     <div class="relative flex w-full flex-wrap items-stretch mb-3">
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
                             <i class="material-icons">badge</i>
                         </span>
-                        
+
                         <input required name="nome" type="text" placeholder="Nome" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
                     </div>
 
@@ -91,14 +91,14 @@
                                 <option value="biennio">Biennio (1°-2°)</option>
                                 <option value="triennio">Triennio (3°-5°)</option>
                             </select>
-                            
+
                         </div>
 
                         <div class="sm:w-1/2 w-28">
                             <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
                                 <i class="material-icons">text_fields</i>
                             </span>
-                            
+
                             <select required name="corso" class="px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10">
                                 <option value="" selected disabled hidden>-Indirizzo-</option>
                                 <option value="liceo">Liceo</option>
@@ -106,16 +106,16 @@
                             </select>
                         </div>
                     </div>
-                    
+
 
 
                     <div class="relative flex w-full flex-wrap items-stretch mb-3">
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
                             <i class="fas fa-lock"></i>
                         </span>
-                        
+
                         <input required name="password" id="pswd" type="password" placeholder="Password" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
-                        
+
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                             <i id="eye" class="fas fa-eye" onclick="showPassword('pswd', 'eye')"></i>
                         </span>
@@ -125,9 +125,9 @@
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
                             <i class="fas fa-lock"></i>
                         </span>
-                        
+
                         <input required name="cpassword" id="cpswd" type="password" placeholder="Conferma password" class=" px-2 py-1 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
-                        
+
                         <span class=" z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                             <i id="ceye" class="fas fa-eye" onclick="showPassword('cpswd', 'ceye')"></i>
                         </span>
@@ -141,7 +141,7 @@
                 </form>
             </div>
         </div>
-        
+
         <script src="script/register.js"></script>
     </body>
 </html>

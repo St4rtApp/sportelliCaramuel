@@ -27,14 +27,14 @@
                 <span class="font-semibold text-green-500 dark:text-green-400">Info</span>
                 <p class="text-sm text-gray-600 dark:text-gray-200">');
 
-                echo $_SESSION['info'];     
+                echo $_SESSION['info'];
 
                 print('
                     </p>
                     </div>
                 </div>
             </div>
-                ');         
+                ');
         }
         ?>
     <?php
@@ -55,18 +55,18 @@
                     foreach($errors as $showerror){
                         echo $showerror;
                     }
-                }      
+                }
                 print('
                     </p>
                     </div>
                 </div>
             </div>
-                ');         
+                ');
         }
         ?>
         <div class="mx-auto rounded-md shadow w-64">
             <form method='POST'>
-                <input name="otp" type="text" placeholder="Codice di conferma">
+                <input name="otp" type="number" placeholder="Codice di conferma">
                 <input name="otp_send" type="submit">
             </form>
         </div>

@@ -20,3 +20,13 @@ th {
     -ms-user-select: none;
     user-select: none;
 }
+
+input:focus {
+    outline:none !important;
+}
+
+.page-centered{
+  top: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+}

@@ -12,8 +12,8 @@
 
         <div class="flex">
           <div class="md:w-72 h-screen bg-black">
-            <div class="flex ml-7 my-5 pb-6 border-b border-gray-300">
-              <a href="#" class="mx-auto uppercase font-light text-white text-2xl">Sportelli</a>
+            <div class="flex mr-12 my-5 pb-6 border-b border-gray-300">
+              <a href="#" class="pl-6 uppercase font-light text-white text-2xl">Sportelli</a>
             </div>
 
             <div id="dashboard" class="flex items-center px-6 h-12 hover:bg-gray-900">
@@ -35,7 +35,7 @@
           </div>
 
           <div class="w-max">
-            <div class="my-5 pb-6 border-b border-black">
+            <div class="my-5 pb-6">
               <p class="text-center text-2xl">Prenota</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 pt-3">
