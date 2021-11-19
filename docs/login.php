@@ -10,9 +10,9 @@
     </head>
 
     <body style="background-image: url('IMGs/study.jpg')"class="overflow-hidden">
-        <h1 class="text-center">Login</h1>
+        <h1 id="titolo" class="text-center">Login</h1>
 
-        <div id="error_popup" style="width:500px;position:relative;top:125px" class="hidden flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 ">
+        <div id="error_popup" style="width:500px;position:relative;top:115px" class="hidden flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 ">
           <div class="flex items-center justify-center w-12 bg-red-500">
               <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                   <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z"/>
@@ -51,33 +51,37 @@
 
                     <div class="pt-4">
                         <input id="submit_btn" name="login" type="submit" value="login" class="cursor-pointer bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold uppercase text-sm px-4 py-1 rounded-full shadow hover:shadow-md hover:bg-blue-800 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
-                        <a href="#" class="bg-gradient-to-r from-blue-500 to-blue-800 text-white active:bg-purple-600 font-bold uppercase text-sm px-4 py-1 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Dimenticata?</a>
+                        <a id="dimenticanza" href="#" class="bg-gradient-to-r from-blue-500 to-blue-800 text-white active:bg-purple-600 font-bold uppercase text-sm px-4 py-1 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Dimenticata?</a>
                     </div>
                 </form>
             </div>
         </div>
 
         <script>
-          $("#login_form").submit(function(){
-
-            $.ajax({
-              type: "POST",
-              url: "controller.php",
-              datatype: "html",
-              data: dataString,
-              success: function(data) {
-                alert("OK!!!");
-
-                var errori = $.parseJSON(data);
-                if(errori.email!="" || errori.dberror!=""){
-                  document.getElementById("error_popup").classList.remove("hidden");
-                  document.getElementById("error_log").innerHTML=errori.email + errori.dberror;                
-              },
-              error: function() {
-                alert("Problema di comunicazione con il server");
-              }
+            $("#titolo").click(function(){
+              document.getElementById("error_popup").classList.remove("hidden");
             });
-          });
+
+            $("#submit_btn").click(function(){
+              $.ajax({
+                type: "POST",
+                url: "controller.php",
+                datatype: "html",
+                data: dataString,
+
+                success: function(data) {
+                  var errori = $.parseJSON(data);
+                  if(errori.email!="" || errori.dberror!=""){
+                    document.getElementById("error_popup").classList.remove("hidden");
+                    document.getElementById("error_log").innerHTML=errori.email + errori.dberror;
+                  }
+                },
+                error: function() {
+                  alert("Problema di comunicazione con il server!");
+                }
+              });
+            });
+
         </script>
 
         <script src="script/login.js"></script>
