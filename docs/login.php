@@ -10,7 +10,6 @@
     </head>
 
     <body style="background-image: url('IMGs/study.jpg')"class="overflow-hidden">
-        <h1 id="titolo" class="text-center">Login</h1>
 
         <div id="error_popup" style="width:500px;position:relative;top:115px" class="hidden flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 ">
           <div class="flex items-center justify-center w-12 bg-red-500">
@@ -26,8 +25,9 @@
           </div>
         </div>
 
-        <div style="width:500px;position:relative;top:125px" class="mx-auto shadow-lg py-10 bg-white rounded page-centered">
-            <div>
+        <div style="width:500px;position:relative;top:125px" class="mx-auto shadow-lg pt-6 pb-10 bg-white rounded page-centered">
+            <h1 id="titolo" class="text-center text-xl">Login</h1>
+            <div class="pt-8">
                 <form method="POST" id="login_form" class="mx-10">
                     <div class="relative flex w-full flex-wrap items-stretch mb-3">
                         <span class="flex items-center z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base justify-center w-8 pl-2 py-1">
