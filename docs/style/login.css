@@ -1,0 +1,18 @@
+#form_container{
+  width:500px;
+
+}
+@media only screen and (max-width: 640px) {
+  #form_container{
+
+  }
+  .border-b-3{
+    border-bottom: 3px solid #9CA3AF;
+  }
+  #email{
+    padding-left: 3rem;
+  }
+  #pswd{
+    padding-left: 3rem;
+  }
+}
