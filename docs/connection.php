@@ -1,9 +1,9 @@
 <?php 
 
-$host="localhost";
-$user="root";
+$host="";
+$user="";
 $pswd="";
-$database="sportellicaramuel";
+$database="";
 
 $connessione= new mysqli($host,$user,$pswd,$database);
 

@@ -18,10 +18,10 @@ if(isset($_POST["register"])){
     //verifico la password
 
     if($pswd !== $cpswd){
-        $errors['password']= "Le password non corrispondono";
+        $errors['password']= "Le password non corrispondono.\n";
     }
     if(strlen($pswd) < 9){
-        $errors['password']= "La password deve essere di almeno 9 caratteri";
+        $errors['password']= "La password deve essere di almeno 9 caratteri.\n";
     }
 
     $is_caramuel=explode('@',$email);
@@ -38,13 +38,13 @@ if(isset($_POST["register"])){
                 $fetch_check = $result->fetch_assoc();
                 $otpcheck=$fetch_check['status'];
                 if($otpcheck == 'notverified'){
-                    $errors['email']= "La mail inserita esiste già, <a href='otp.php' class='text-blue-500'>verificala qui</a>";
+                    $errors['email']= "La mail inserita esiste già, <a href='otp.php' class='text-blue-500'>verificala qui</a>.\n";
                 }else{
-                    $errors['email']= "La mail inserita esiste già";
+                    $errors['email']= "La mail inserita esiste già.\n";
                 }
             }
         }else{
-            $errors['db-error']="errore del database";
+            $errors['db-error']="errore del database.\n";
         }   
     }
 
@@ -70,7 +70,7 @@ if(isset($_POST["register"])){
         if($data_check = $connessione->query($query)){
            $subject = "Email Verification Code";
            $message = "codice di verifica: $code";
-           $sender = "From: mail@caramuelroncalli.it";
+           $sender = "From: verifica@caramuelroncalli.it";
            if(mail($email,$subject,$message,$sender)){
                $info="Ti abbiamo mandato via email il codice di verifica";
                $_SESSION['info'] = $info;
@@ -190,10 +190,10 @@ if(isset($_POST['login'])){
                     header('location:otp.php');
                 }
             }else{
-            $errors['email'] = "Email o password errate";
+            $errors['email'] = "Email o password errate.\n";
         }
         }else{
-            $errors['email'] = "Sembra che tu non sia registrato, <a href='register.php' class='text-blue-500'>registrati qui</a>";
+            $errors['email'] = "Sembra che tu non sia registrato, <a href='register.php' class='text-blue-500'>registrati qui</a>.\n";
         }
     }else{
         $errors['db-error']="errore del database";
@@ -231,7 +231,7 @@ if(isset($_POST['forgot-pswd'])){
         if($result){
            $subject = "Password reset Code";
            $message = "codice di verifica: $code";
-           $sender = "From: mail@caramuelroncalli.it";
+           $sender = "From: verifica@caramuelroncalli.it";
 
            if(mail($email,$subject,$message,$sender)){
                $info="Ti abbiamo mandato via email il codice di verifica per il reset della password";
@@ -241,13 +241,13 @@ if(isset($_POST['forgot-pswd'])){
                exit();
 
            }else{
-               $errors['otp-error'] = "errore nell'invio del codice di verifica";
+               $errors['otp-error'] = "errore nell'invio del codice di verifica.\n";
            }    
         }else{
             $errors['db-error']="errore del database";
         }
     }else{
-        $errors['email'] = "Questo indirizzo email non esiste!";
+        $errors['email'] = "Questo indirizzo email non esiste!.\n";
     }
 
 }
@@ -302,9 +302,9 @@ if(isset($_POST['change-password'])){
     //verifico la password
 
     if($pswd !== $cpswd){
-        $errors['password']= "Le password non corrispondono";
+        $errors['password']= "Le password non corrispondono.\n";
     }elseif(strlen($pswd) < 9){
-        $errors['password']= "La password deve essere di almeno 9 caratteri";
+        $errors['password']= "La password deve essere di almeno 9 caratteri.\n";
     }else{
 
         //cambio la password nel db
