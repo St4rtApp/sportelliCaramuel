@@ -152,15 +152,12 @@ if(isset($_POST['login'])){
                 }
             }else{
             $errors['email'] = "Email o password errate";
-            echo json_encode($errors);
         }
         }else{
             $errors['email'] = "Sembra che tu non sia registrato, <a href='register.php' class='text-blue-500'>registrati qui</a>";
-            echo json_encode($errors);
         }
     }else{
         $errors['dberror']="errore del database";
-        echo json_encode($errors);
     }
 
 }
