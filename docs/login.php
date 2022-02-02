@@ -29,6 +29,7 @@
             <h1 id="titolo" class="text-center sm:text-xl text-2xl">Login</h1>
             <div class="pt-8">
                 <form method="POST" id="login_form" class="mx-10">
+
                     <div class="relative flex w-full flex-wrap items-stretch mb-3">
                         <span class="flex items-center z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base justify-center w-8 pl-2 py-1">
                             <i class="fas fa-user"></i>
