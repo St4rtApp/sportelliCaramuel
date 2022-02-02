@@ -26,6 +26,7 @@
                         echo $showerror;
                     }
                 }      
+
                 print('
                     </p>
                     </div>
@@ -33,6 +34,7 @@
             </div>
                 ');         
         }elseif(isset($_SESSION['info'])){
+
             print('
             <div class=" flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 ">
             <div class="flex items-center justify-center w-12 bg-green-500">
@@ -63,7 +65,7 @@
     ?>
         <div class="mx-auto rounded-md shadow w-64">
             <form method='POST'>
-                <input name="otp" type="text" placeholder="Codice di conferma">
+                <input name="otp" type="number" placeholder="Codice di conferma">
                 <input name="otp_send" type="submit">
             </form>
         </div>
