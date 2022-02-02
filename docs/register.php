@@ -62,7 +62,7 @@
                         <input name="password" id="pswd" type="password" placeholder="Password" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
 
                         <span class="flex z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
-                            <i id="eye" class="fas fa-eye" onclick="showPassword()"></i>
+                            <i id="eye" class="fas fa-eye" onclick="showPassword('pswd','eye')"></i>
                         </span>
                     </div>
 
@@ -74,7 +74,7 @@
                         <input name="cpassword" id="cpswd" type="password" placeholder="Conferma password" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
 
                         <span class="flex z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
-                            <i id="eye" class="fas fa-eye" onclick="showPassword()"></i>
+                            <i id="ceye" class="fas fa-eye" onclick="showPassword('cpswd','ceye')"></i>
                         </span>
                     </div>
 
@@ -114,6 +114,6 @@
 
         </script>
 
-        <script src="script/login.js"></script>
+        <script src="script/register.js"></script>
     </body>
 </html>
