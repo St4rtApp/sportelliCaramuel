@@ -311,7 +311,7 @@ if(isset($_POST['change-password'])){
 
         $code=0;
         $email=$_SESSION['email'];
-        $encpass = password_hash($password, PASSWORD_BCRYPT);
+        $encpass = password_hash($pswd, PASSWORD_BCRYPT);
         $update_pswd= "UPDATE users SET code='$code', password='$encpass' WHERE email='$email' ";
         $run_update= $connessione->query($update_pswd);
         if($run_update){
