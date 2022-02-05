@@ -90,11 +90,11 @@
                     <i class="fas fa-key"></i>
                 </span>
 
-                <input name="email" id="email" type="text" class="px-2 sm:py-3 py-4 sm:text-base text-2xl placeholder-gray-400 text-gray-600 relative bg-white bg-white text-md border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
+                <input name="otp" id="otp" type="text" class="px-2 sm:py-3 py-4 sm:text-base text-2xl placeholder-gray-400 text-gray-600 relative bg-white bg-white text-md border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
             </div>
 
             <div class="sm:pt-4 pt-12">
-                <input id="submit_btn" name="login" value="invio" type="submit" class="cursor-pointer bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold uppercase sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md hover:bg-blue-800 outline-none focus:outline-none ease-linear transition-all duration-150">
+                <input id="submit_btn" name="otp-send" value="invio" type="submit" class="cursor-pointer bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold uppercase sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md hover:bg-blue-800 outline-none focus:outline-none ease-linear transition-all duration-150">
             </div>
         </form>
     </div>

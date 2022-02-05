@@ -51,7 +51,7 @@
                     </div>
                     <div class="sm:pt-4 pt-12">
                         <input id="submit_btn" name="login" value="login" type="submit" class="cursor-pointer bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold uppercase sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md hover:bg-blue-800 outline-none focus:outline-none ease-linear transition-all duration-150">
-                        <a id="dimenticanza" href="new-pswd.php" class="bg-gradient-to-r from-blue-500 to-blue-800 text-white active:bg-purple-600 font-bold uppercase ml-1 sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Dimenticata?</a>
+                        <a id="dimenticanza" href="forgot-pswd.php" class="bg-gradient-to-r from-blue-500 to-blue-800 text-white active:bg-purple-600 font-bold uppercase ml-1 sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Dimenticata?</a>
                         <a id="dimenticanza" href="register.php" class="bg-gradient-to-r from-blue-800 to-purple-900 text-white active:bg-purple-600 font-bold uppercase ml-1 sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Registrati</a>
                     </div>
                 </form>

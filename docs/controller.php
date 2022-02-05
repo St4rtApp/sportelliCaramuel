@@ -98,7 +98,7 @@ if(isset($_POST["register"])){
 
 //se l'utente clicca il bottone per la verifica della mail
 
-if(isset($_POST['otp_send'])){
+if(isset($_POST['otp-send'])){
 
     $_SESSION['info']="";
     $isint=$_POST['otp'];
@@ -218,7 +218,7 @@ if(isset($_POST['forgot-pswd'])){
     $check_email = "SELECT * FROM users WHERE email='$email' ";
     $result = $connessione->query($check_email);
 
-    if($result->num_rows() > 0){
+    if($result->num_rows > 0){
 
         //genero codice otp
 
@@ -269,11 +269,11 @@ if(isset($_POST['check-reset-otp'])){
     $otp_code= $connessione->real_escape_string($_POST['otp']);
     $check_code="SELECT * FROM users WHERE code='$otp_code'";
     $code_res=$connessione->query($check_code);
-    if($code_res->num_rows() > 0){
+    if($code_res->num_rows > 0){
 
         //invio al modulo di cambio password
 
-        $fetch_data= $connessione->fetch_assoc();
+        $fetch_data= $code_res->fetch_assoc();
         $email=$fetch_data['email'];
         $_SESSION['email']=$email;
         $info= "Inserire una nuova password";
