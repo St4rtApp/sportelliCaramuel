@@ -207,7 +207,7 @@ if(isset($_POST['login'])){
 
 
 
-//se l'utente dimentica la password
+//se l'utente clicca dimentica la password
 
 if(isset($_POST['forgot-pswd'])){
 

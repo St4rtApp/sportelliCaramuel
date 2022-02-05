@@ -1,5 +1,18 @@
 <!-- pagina che richiede la nuova password e conferma password e fa una POST a 'change-pswd'  -->
-<?php require_once "controller.php"; ?>
+<?php 
+require_once "controller.php"; 
+$email = $_SESSION['email'];
+if($email != false){
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $run_sql = $connessione->query($sql);
+    if(!($run_sql->num_rows = 0 )){
+        header('Location: login.php');
+    }
+}else{
+    header('Location: login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +25,7 @@
 
     <body style="background-image: url('IMGs/study.jpg')"class="overflow-hidden">
 
-    
+
     <?php
         if(count($errors) > 0){
             print('
