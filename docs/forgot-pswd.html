@@ -1,5 +1,3 @@
-<!-- pagina che richiede la mail dove si ha dimenticato la password e fa una POST a 'forgot-pswd'  -->
-<?php require_once "controller.php"; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,7 +27,7 @@
         <div id="form_container" class="mx-auto relative sm:top-40 shadow-lg pt-6 pb-10 bg-white rounded page-centered">
             <h1 id="titolo" class="text-center sm:text-xl text-2xl">Recupero password</h1>
             <div class="pt-8">
-                <form method="POST" id="login_form" class="mx-10">
+                <form method="POST" id="forgot_form" class="mx-10">
 
                     <div class="relative flex w-full flex-wrap items-stretch mb-3">
                         <span class="flex items-center z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base justify-center w-8 pl-2 py-1">
@@ -40,7 +38,7 @@
                     </div>
 
                     <div class="sm:pt-4 pt-12">
-                        <input id="submit_btn" name="forgot-pswd" value="forgot-pswd" type="submit" class="cursor-pointer bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold uppercase sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md hover:bg-blue-800 outline-none focus:outline-none ease-linear transition-all duration-150">
+                        <input id="submit_btn" name="forgot_pswd" value="forgot-pswd" type="submit" class="cursor-pointer bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold uppercase sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md hover:bg-blue-800 outline-none focus:outline-none ease-linear transition-all duration-150">
                         
                     </div>
                 </form>
@@ -48,7 +46,24 @@
         </div>
 
         <script>
-
+            $(document).ready(function(){
+                $("#forgot_form").submit(function(event){
+                    formData = {
+                        email: $("#email").val(),
+                        forgot_pswd: $("#submit_btn").val(),
+                    }
+                    $.post("php/do_forgot_pswd.php", formData).done(function(data) {
+                        try{
+                            var obj = JSON.parse(data);
+                            console.log(data);
+                        }catch(e){
+                            console.log(e);
+                            console.log(data);
+                        }
+                    });  
+                    event.preventDefault();             
+                });                            
+            }); 
         </script>
 
         <script src="script/login.js"></script>

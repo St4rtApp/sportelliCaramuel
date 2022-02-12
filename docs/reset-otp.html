@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <div class="mx-auto rounded-md shadow w-64">
+            <form method='POST' id="resetotp_form">
+                <input name="otp" type="number" placeholder="Codice di conferma">
+                <input name="check_reset_otp" type="submit">
+            </form>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $("#resetotp_form").submit(function(event){
+                    formData = {
+                        otp: $("#otp").val(),
+                        otp_send: $("#submit_btn").val(),
+                    }
+                    $.post("php/do_reset_otp.php", formData).done(function(data) {
+                        try{
+                            var obj = JSON.parse(data);
+                            console.log(data);
+                        }catch(e){
+                            console.log(e);
+                            console.log(data);
+                        }
+                    });  
+                    event.preventDefault();             
+                });                            
+            }); 
+        </script>
+    </body>
+</html>
