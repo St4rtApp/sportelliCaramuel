@@ -1,15 +1,14 @@
 <!-- pagina che richiede la nuova password e conferma password e fa una POST a 'change-pswd'  -->
 <?php 
-require_once "controller.php"; 
 $email = $_SESSION['email'];
 if($email != false){
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $run_sql = $connessione->query($sql);
     if(!($run_sql->num_rows = 0 )){
-        header('Location: login.php');
+        header('Location: login.login.html');
     }
 }else{
-    header('Location: login.php');
+    header('Location: login.html');
 }
 
 ?>

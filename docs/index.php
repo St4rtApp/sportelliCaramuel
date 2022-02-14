@@ -1,4 +1,3 @@
-<?php require_once "controller.php"; ?>
 <?php 
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
@@ -11,17 +10,17 @@ if($email != false && $password != false){
         $code = $fetch_info['code'];
         if($status == "verified"){
             if($code != 0){
-                header('Location: otp.php');
+                header('Location: otp.html');
             }
         }else{
-            header('Location: otp.php');
+            header('Location: otp.html');
         }
     }else{
         echo "sql fail";
         die();
     }
 }else{
-    header('Location: login.php');
+    header('Location: login.html');
 }
 ?>
 
