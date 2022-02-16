@@ -73,11 +73,11 @@ if(isset($_POST["register"])){
            $message = "codice di verifica: $code";
            $sender = "From: verifica@caramuelroncalli.it";
            if(mail($email,$subject,$message,$sender)){
-               $data['info']="Ti abbiamo mandato via email il codice di verifica";
+               $data['info']="Ti abbiamo mandato via email il codice di verifica, reindirizzamento...";
                $_SESSION['info'] = $info;
                $_SESSION['email'] = $email;
                $_SESSION['password'] = $pswd;
-               header('location: ../otp.html');
+               $data['register'] = true;
                exit();
            }else{
                $data['errors']['otp-error'] = "errore nell'invio del codice di verifica";

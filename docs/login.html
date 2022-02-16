@@ -34,7 +34,7 @@
                             <i class="fas fa-user"></i>
                         </span>
 
-                        <input name="email" id="email" type="text" placeholder="mail@esempio.com" class="px-2 sm:py-3 py-4 sm:text-base text-2xl placeholder-gray-400 text-gray-600 relative bg-white bg-white text-md border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
+                        <input id="email" type="text" placeholder="mail@esempio.com" class="px-2 sm:py-3 py-4 sm:text-base text-2xl placeholder-gray-400 text-gray-600 relative bg-white bg-white text-md border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
                     </div>
 
                     <div class="relative flex w-full flex-wrap items-stretch">
@@ -42,7 +42,7 @@
                             <i class="fas fa-lock"></i>
                         </span>
 
-                        <input name="password" id="pswd" type="password" placeholder="Password" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
+                        <input id="pswd" type="password" placeholder="Password" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
 
                         <span class="flex z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                             <i id="eye" class="fas fa-eye" onclick="showPassword()"></i>
@@ -68,7 +68,11 @@
                     $.post("php/do_login.php", formData).done(function(data) {
                         try{
                             var obj = JSON.parse(data);
-                            console.log(data);
+                            if("errors" in obj){
+                                console.log(obj['errors']);
+                            }else if(obj['login']==true){
+                                window.location.replace("index.php");
+                            }
                         }catch(e){
                             console.log(e);
                             console.log(data);

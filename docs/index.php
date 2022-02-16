@@ -1,18 +1,18 @@
-<?php 
+<?php
+session_start();
+require "php/connection.php";
+
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
+
 if($email != false && $password != false){
     $sql = "SELECT * FROM users WHERE email = '$email'";
-    $run_sql = $connessione->query($sql);
-    if($run_sql){
+    if($run_sql = $connessione->query($sql)){
         $fetch_info = $run_sql->fetch_assoc();
         $status = $fetch_info['status'];
         $code = $fetch_info['code'];
-        if($status == "verified"){
-            if($code != 0){
-                header('Location: otp.html');
-            }
-        }else{
+
+        if($status == "notverified" || $code != 0){
             header('Location: otp.html');
         }
     }else{
@@ -20,7 +20,7 @@ if($email != false && $password != false){
         die();
     }
 }else{
-    header('Location: login.html');
+    header('Location: login.php');
 }
 ?>
 

@@ -10,8 +10,8 @@
     <body>
         <div class="mx-auto rounded-md shadow w-64">
             <form method='POST' id="resetotp_form">
-                <input name="otp" type="number" placeholder="Codice di conferma">
-                <input name="check_reset_otp" type="submit">
+                <input id="otp" type="number" placeholder="Codice di conferma">
+                <input id="submit_btn" type="submit">
             </form>
         </div>
 
@@ -19,10 +19,10 @@
             $(document).ready(function(){
                 $("#resetotp_form").submit(function(event){
                     formData = {
-                        otp: $("#otp").val(),
-                        otp_send: $("#submit_btn").val(),
+                        r_otp: $("#otp").val(),
+                        reset_otp: $("#submit_btn").val(),
                     }
-                    $.post("php/do_reset_otp.php", formData).done(function(data) {
+                    $.post("php/do_otp.php", formData).done(function(data) {
                         try{
                             var obj = JSON.parse(data);
                             console.log(data);

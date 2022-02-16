@@ -29,7 +29,7 @@ if(isset($_POST["login"])){
                 if($status == "verified"){
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $pswd;
-                    header('location: ../index.php');
+                    $data['login'] = true;
                 }else{
                     $info = "Sembra che tu non abbia ancora verificato la mail - $email";
                     $_SESSION['info'] = $info;

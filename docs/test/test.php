@@ -1,4 +1,4 @@
 <?php
-    $encpass= password_hash("Vigevano1", PASSWORD_BCRYPT);
-    echo $encpass;
+    session_start();
+    echo $_SESSION['email'] . $_SESSION['password'] . "<br>";
 ?>

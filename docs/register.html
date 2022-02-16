@@ -35,7 +35,7 @@
                             <i class="fas fa-at"></i>
                         </span>
 
-                        <input required name="email" id="email" type="text" placeholder="mail@esempio.com" class="px-2 sm:py-3 py-4 sm:text-base text-2xl placeholder-gray-400 text-gray-600 relative bg-white bg-white text-md border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
+                        <input required id="email" type="text" placeholder="mail@esempio.com" class="px-2 sm:py-3 py-4 sm:text-base text-2xl placeholder-gray-400 text-gray-600 relative bg-white bg-white text-md border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
                     </div>
 
                     <div class="relative flex w-full flex-wrap items-stretch mb-3">
@@ -43,7 +43,7 @@
                             <i class="material-icons">badge</i>
                         </span>
 
-                        <input required name="nome" id="nome" type="text" placeholder="Nome" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
+                        <input required id="nome" type="text" placeholder="Nome" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
                     </div>
 
                     <div class="relative flex w-full flex-wrap items-stretch mb-3">
@@ -51,27 +51,31 @@
                             <i class="material-icons">badge</i>
                         </span>
 
-                        <input required name="cognome" id="cognome" type="text" placeholder="Cognome" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
+                        <input required id="cognome" type="text" placeholder="Cognome" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
                     </div>
+                    
+                    <p id="pswd_keyup" class="text-xs text-red-600 hidden pl-3">La password deve contenere almeno 9 caratteri</p>
 
-                    <div class="relative flex w-full flex-wrap items-stretch">
-                        <span class="flex z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
+                    <div class="relative flex w-full flex-wrap items-stretch mb-3">
+                        <span class="flex z-10 h-full leading-snug font-normal text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
                             <i class="fas fa-lock"></i>
                         </span>
 
-                        <input name="password" id="pswd" type="password" placeholder="Password" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
+                        <input id="pswd" type="password" placeholder="Password" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
 
-                        <span class="flex z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
+                        <span class="flex z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                             <i id="eye" class="fas fa-eye" onclick="showPassword('pswd','eye')"></i>
                         </span>
                     </div>
 
-                    <div class="relative flex w-full flex-wrap items-stretch">
+                    <p id="cpswd_keyup" class="text-xs text-red-600 hidden pl-3 pt-1">Le password devono coincidere</p>
+
+                    <div class="relative flex w-full flex-wrap items-stretch mb-3">
                         <span class="flex z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-1">
                             <i class="fas fa-lock"></i>
                         </span>
 
-                        <input name="cpassword" id="cpswd" type="password" placeholder="Conferma password" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
+                        <input id="cpswd" type="password" placeholder="Conferma password" class=" px-2 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10"/>
 
                         <span class="flex z-10 h-full leading-snug font-normal absolute text-center sm:text-base text-2xl text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                             <i id="ceye" class="fas fa-eye" onclick="showPassword('cpswd','ceye')"></i>
@@ -83,7 +87,7 @@
                             <i class="material-icons">school</i>
                         </span>
 
-                        <select required name="anno" id="anno" type="text" class=" px-2 py-3 text-gray-400 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10">
+                        <select required id="anno" type="text" class=" px-2 py-3 text-gray-400 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10">
                             <option value="" selected disabled hidden>-Anno-</option>
                             <option value="biennio">Biennio (1°-2°)</option>
                             <option value="triennio">Triennio (3°-5°)</option>
@@ -95,7 +99,7 @@
                             <i class="material-icons">text_fields</i>
                         </span>
 
-                        <select required name="corso" id="corso" type="text" class=" px-2 py-3 text-gray-400 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10">
+                        <select required id="corso" type="text" class=" px-2 py-3 text-gray-400 relative bg-white bg-white sm:text-base text-2xl border-b-3 sm:border-b-2 border-gray-400 w-full pl-10">
                                 <option value="" selected disabled hidden>-Indirizzo-</option>
                                 <option value="liceo">Liceo</option>
                                 <option value="itis">I.T.I.S.</option>
@@ -104,7 +108,7 @@
 
 
                     <div align="center" class="sm:pt-4 pt-12">
-                        <input id="submit_btn" name="register" value="register" type="submit" class="cursor-pointer bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold uppercase sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md hover:bg-blue-800 outline-none focus:outline-none ease-linear transition-all duration-150">
+                        <input id="submit_btn" value="register" type="submit" class="cursor-pointer bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold uppercase sm:text-sm text-lg sm:px-4 px-7 sm:py-1 py-2 sm:rounded-full rounded-lg shadow hover:shadow-md hover:bg-blue-800 outline-none focus:outline-none ease-linear transition-all duration-150">
                     </div>
                 </form>
             </div>
@@ -112,6 +116,22 @@
 
         <script>
             $(document).ready(function(){
+                $("#pswd").keyup(function(){
+                    if($(this).val().length<9){
+                        $("#pswd_keyup").removeClass("hidden");
+                    }else{
+                        $("#pswd_keyup").addClass("hidden");
+                    }
+                });
+
+                $("#cpswd").keyup(function(){
+                    if($(this).val()!=$("#pswd").val()){
+                        $("#cpswd_keyup").removeClass("hidden");
+                    }else{
+                        $("#cpswd_keyup").addClass("hidden");
+                    }
+                });
+
                 $("#register_form").submit(function(event){
                     formData = {
                         nome: $("#nome").val(),
@@ -126,7 +146,13 @@
                     $.post("php/do_register.php", formData).done(function(data) {
                         try{
                             var obj = JSON.parse(data);
-                            console.log(data);
+                            if("errors" in obj){
+                                console.log(obj['errors']);
+                            }else if(obj['register']==true){
+                                console.log(obj['info']);
+                                await sleep(5);
+                                window.location.replace("otp.html");
+                            }
                         }catch(e){
                             console.log(e);
                             console.log(data);
