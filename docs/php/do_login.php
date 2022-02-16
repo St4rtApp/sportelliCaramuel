@@ -29,17 +29,17 @@ if(isset($_POST["login"])){
                 if($status == "verified"){
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $pswd;
-                    header('location: index.php');
+                    header('location: ../index.php');
                 }else{
                     $info = "Sembra che tu non abbia ancora verificato la mail - $email";
                     $_SESSION['info'] = $info;
-                    header('location:otp.php');
+                    header('location: ../otp.html');
                 }
             }else{
             $data['errors']['email'] = "Email o password errate.\n";
         }
         }else{
-            $data['errors']['email'] = "Sembra che tu non sia registrato, <a href='register.php' class='text-blue-500'>registrati qui</a>.\n";
+            $data['errors']['email'] = "Sembra che tu non sia registrato, <a href=' register.html' class='text-blue-500'>registrati qui</a>.\n";
         }
     }else{
         $data['errors']['dberror']="errore del database";

@@ -38,7 +38,8 @@ if(isset($_POST["register"])){
                 $fetch_check = $result->fetch_assoc();
                 $otpcheck=$fetch_check['status'];
                 if($otpcheck == 'notverified'){
-                    $data['errors']['email']= "La mail inserita esiste già, <a href='otp.php' class='text-blue-500'>verificala qui</a>.\n";
+                    $_SESSION['email']=$email;
+                    $data['errors']['email']= "La mail inserita esiste già, <a href='otp.html' class='text-blue-500'>verificala qui</a>.\n";
                 }else{
                     $data['errors']['email']= "La mail inserita esiste già.\n";
                 }
@@ -76,7 +77,7 @@ if(isset($_POST["register"])){
                $_SESSION['info'] = $info;
                $_SESSION['email'] = $email;
                $_SESSION['password'] = $pswd;
-               header('location: otp.php');
+               header('location: ../otp.html');
                exit();
            }else{
                $data['errors']['otp-error'] = "errore nell'invio del codice di verifica";

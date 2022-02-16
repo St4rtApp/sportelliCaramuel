@@ -13,7 +13,7 @@ if(isset($_POST['otp_send'])){
 
     //verifico che l'input sia un int
 
-    if(is_numeric($isint)){
+    if(is_numeric($isint) and $isint !== 0){
         $otp_code= $connessione->real_escape_string($_POST['otp']);
     }else{
         $data['errors']['otp-error']="codice errato";
@@ -22,8 +22,8 @@ if(isset($_POST['otp_send'])){
     //verifico il codice
 
     if(!array_key_exists('errors', $data)){
-
-        $check_code= "SELECT * FROM users WHERE code= '$otp_code'";
+        $mail=$_SESSION['email'];
+        $check_code= "SELECT * FROM users WHERE code= '$otp_code' AND email='$mail'";
 
         if($result = $connessione->query($check_code)){
     
@@ -42,7 +42,7 @@ if(isset($_POST['otp_send'])){
                 if($update_res = $connessione->query($update_otp)){
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $pswd;
-                    header('location: index.php');
+                    header('location: ../index.php');
                     exit(); 
                 }else{
                     $data['errors']['otp-error'] = "errore di autenticazione";

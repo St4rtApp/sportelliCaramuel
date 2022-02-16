@@ -34,7 +34,7 @@ if(isset($_POST['forgot_pswd'])){
                $info="Ti abbiamo mandato via email il codice di verifica per il reset della password";
                $_SESSION['info'] = $info;
                $_SESSION['email'] = $email;
-               header('location: reset-otp.php');
+               header('location: ../reset-otp.html');
                exit();
 
            }else{

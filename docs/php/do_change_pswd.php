@@ -29,7 +29,7 @@ if(isset($_POST['change-password'])){
         if($run_update){
             $info="Password cambiata con successo";
             $_SESSION['info']=$info;
-            header('location:login.php');
+            header('location: ../login.html');
             exit();
         }else{
             $data['errors']['db-error']="errore del database";

@@ -23,7 +23,7 @@ if(isset($_POST['check_reset_otp'])){
         $_SESSION['email']=$email;
         $info= "Inserire una nuova password";
         $_SESSION['info']=$info;
-        header('location:new-pswd.php');
+        header('location:  ../new-pswd.php');
         exit();
 
     }else{
