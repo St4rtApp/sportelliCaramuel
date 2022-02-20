@@ -58,10 +58,9 @@ function clearCalendar(){
 function clearStyle(){
     for(let i=0; i<42; i++){
       if(	document.getElementsByTagName("td")[i].innerHTML==""){
-      	document.getElementsByTagName("td")[i].className="";
+      	document.getElementsByTagName("td")[i].className="pointer-events-none";
       }else{
-        document.getElementsByTagName("td")[i].className = "rounded-full items-center justify-center hover:bg-gray-300 hover:shadow-outline days cursor-pointer py-1";
-        document.getElementsByTagName("td")[i].classList.add("unselectable");
+        document.getElementsByTagName("td")[i].className = "rounded-full items-center justify-center hover:bg-gray-300 hover:shadow-outline days cursor-pointer py-1 unselectable";
       }
     }
 }
@@ -70,7 +69,7 @@ function clearStyle(){
 //Riempimento calendario con giorni del mese
 function displayCalendar(d){
 
-    console.log("Full date: " + d.getDate() + " / " + d.getMonth() + " / " + d.getFullYear());
+    console.log("Full date: " + d.getDate() + " / " + (d.getMonth()+1) + " / " + d.getFullYear());
     console.log("Giorno della settimana: " + d.dayOfWeek() + " (" + d.getDay() + ")");
 
     document.getElementById("month").innerHTML=d.monthName();
@@ -97,18 +96,50 @@ function displayCalendar(d){
 
 //Aggiornamento calendario al prossimo mese rispetto a quello visualizzato
 function nextMonth(){
-    var month = current.getMonth();
-    current.setMonth(month + 1);
-    displayCalendar(new Date(current.getFullYear(), current.getMonth()));
+  var month = current.getMonth();
+  current.setMonth(month + 1);
+  displayCalendar(new Date(current.getFullYear(), current.getMonth()));
 }
 
 //Aggiornamento calendario al mese precedente rispetto a quello visualizzato
 function previousMonth(){
-    var month = current.getMonth();
-    current.setMonth(month - 1);
-    displayCalendar(new Date(current.getFullYear(), current.getMonth()));
+  var month = current.getMonth();
+  current.setMonth(month - 1);
+  displayCalendar(new Date(current.getFullYear(), current.getMonth()));
 }
 
 
 
 displayCalendar(new Date(current.getFullYear(), current.getMonth()));
+
+
+$("#user-menu-button").click(function(){
+  if($("#user-menu").hasClass("hidden")){
+    $("#user-menu").removeClass("hidden");
+  }else{
+    $("#user-menu").addClass("hidden");
+  }
+});
+
+$("#menu-hamburger").click(function(){
+  if($("#mobile-menu").hasClass("hidden")){
+    $("#mobile-menu").removeClass("hidden");
+    $("#hamburger-icon").addClass("hidden");
+    $("#cross-icon").removeClass("hidden");
+  }else{
+    $("#mobile-menu").addClass("hidden");
+    $("#cross-icon").addClass("hidden");
+    $("#hamburger-icon").removeClass("hidden");
+  }
+});
+
+$("#user-menu-item-2").click(function(){
+  let formData = {logout: $(this).val()};
+  $.post("php/do_logout.php", formData).done(function(data) {
+    location.reload();
+  });
+});
+
+$("td").click(function(){
+  alert(parseInt(this.innerHTML) + "-" + (current.getMonth()+1) + "-" + current.getFullYear()); 
+});
