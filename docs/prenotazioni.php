@@ -34,6 +34,7 @@ if($email != false && $password != false){
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="style/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="script/navbar.js"></script>
         <title>Dashboard</title>
     </head>
     <body class="overflow-x-hidden">
@@ -75,8 +76,8 @@ if($email != false && $password != false){
                 
                             <div class="flex space-x-1 my-auto hidden sm:block sm:ml-6">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
-
+                                <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Homepage</a>
+                                <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Prenotazioni</a>
                                 <a href="https://www.caramuelroncalli.it/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sito Caramuel</a>
                             </div>
                         
@@ -125,14 +126,13 @@ if($email != false && $password != false){
             <div class="hidden sm:hidden" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
-
+                <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Homepage</a>
+                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Prenotazioni</a>
                 <a href="https://www.caramuelroncalli.it/" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sito Caramuel</a>
                 </div>
             </div>
         </nav>
 
-        
         <div align="center">
             <div class="w-max">
                 <div class="my-5 pb-6">
@@ -260,6 +260,9 @@ if($email != false && $password != false){
             </div>
           </div>
         </div>
+
+
+
 
         <script src="script/dashboard.js"></script>
     </body>
