@@ -29,12 +29,12 @@ if($email != false && $password != false){
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="style/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="script/navbar.js"></script>
         <title>Dashboard</title>
     </head>
     <body class="overflow-x-hidden">
@@ -70,8 +70,8 @@ if($email != false && $password != false){
 
                     <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                         <div class="flex-shrink-0 flex items-center">
-                            <img class="block lg:hidden h-16 w-auto" src="IMGs/logo_nosfondo.png" alt="Workflow">
-                            <img class="hidden lg:block h-16 w-auto" src="IMGs/logo_nosfondo.png" alt="Workflow">
+                            <img class="block lg:hidden h-16 w-auto" src="IMGs/logo_nosfondo.png" alt="Caramuel">
+                            <img class="hidden lg:block h-16 w-auto" src="IMGs/logo_nosfondo.png" alt="Caramuel">
                         </div>
                 
                             <div class="flex space-x-1 my-auto hidden sm:block sm:ml-6">
@@ -132,6 +132,8 @@ if($email != false && $password != false){
                 </div>
             </div>
         </nav>
+
+        <script src="script/navbar.js"></script>
 
         <div align="center">
             <div class="w-max">
